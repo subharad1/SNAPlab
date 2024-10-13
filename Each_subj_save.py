@@ -26,7 +26,7 @@ import alpha_spec_functions
 # %%
 fpath = "/Users/sharadhib/Library/CloudStorage/Box-Box/SNAPlab/Data/"
 subj = 'SP009'
-resultsdir = '/Users/sharadhib/Library/CloudStorage/Box-Box/SNAPlab/results/'
+resultsdir = 'results/'
 
 lefts = []
 rights = []
@@ -91,8 +91,8 @@ right = concatenate_epochs(rights)
 raw.plot_projs_topomap()
 
 # %%
-epoch_name_l = resultsdir+subj + '_epochs_left-epo.fif'
-epoch_name_r = resultsdir+subj + '_epochs_right-epo.fif'
+epoch_name_l = fpath+resultsdir+subj + '_epochs_left-epo.fif'
+epoch_name_r = fpath+resultsdir+subj + '_epochs_right-epo.fif'
 
 left.save(epoch_name_l,overwrite=True)
 right.save(epoch_name_r, overwrite=True)
@@ -100,8 +100,8 @@ right.save(epoch_name_r, overwrite=True)
 evoked_left = left.average()
 evoked_right = right.average()
 
-fname_left = resultsdir+subj + '_evoked_left_ave.fif'
-fname_right = resultsdir+subj + '_evoked_right_ave.fif'
+fname_left = fpath+resultsdir+subj + '_evoked_left_ave.fif'
+fname_right = fpath+resultsdir+subj + '_evoked_right_ave.fif'
 
 evoked_left.save(fname_left,overwrite=True)
 evoked_right.save(fname_right, overwrite=True)
@@ -123,8 +123,8 @@ epoch_right_dur = right.copy().crop(tmin=2.0, tmax=5.0)
 evoked_left_dur = epoch_left_dur.average()
 evoked_right_dur = epoch_right_dur.average()
 
-fname_left = resultsdir+subj + '_evoked_left_dur_ave.fif'
-fname_right = resultsdir+subj + '_evoked_right_dur_ave.fif'
+fname_left = fpath+resultsdir+subj + '_evoked_left_dur_ave.fif'
+fname_right = fpath+resultsdir+subj + '_evoked_right_dur_ave.fif'
 
 evoked_left_dur.save(fname_left,overwrite=True)
 evoked_right_dur.save(fname_right, overwrite=True)
@@ -150,8 +150,8 @@ n_cycles = freqs * 0.4
 power_alpha_left_pre = tfr_multitaper(epoch_left_pre, freqs, n_cycles, return_itc=False, picks=['eeg'])
 power_alpha_right_pre = tfr_multitaper(epoch_right_pre, freqs, n_cycles, return_itc=False, picks=['eeg'])
 
-fname_pleft = resultsdir+subj+ '_left_alpha_pre_new_tfr.h5'
-fname_pright = resultsdir+subj+ '_right_alpha_pre_new_tfr.h5'
+fname_pleft = fpath+resultsdir+subj+ '_left_alpha_pre_new_tfr.h5'
+fname_pright = fpath+resultsdir+subj+ '_right_alpha_pre_new_tfr.h5'
 
 power_alpha_left_pre.save(fname_pleft, overwrite=True)
 power_alpha_right_pre.save(fname_pright, overwrite=True)
@@ -162,7 +162,7 @@ avg_power_alpha_right_pre = power_alpha_right_pre.data.mean(axis=1).mean(axis=1)
 # %%
 norm_avg_power_alpha_left_right_pre = (avg_power_alpha_left_pre - avg_power_alpha_right_pre)/(avg_power_alpha_left_pre + avg_power_alpha_right_pre)*0.5*100 
 
-fname_left_right_pre = resultsdir+subj+ '_norm_left_right_pre'
+fname_left_right_pre = fpath+resultsdir+subj+ '_norm_left_right_pre'
 np.save(fname_left_right_pre, norm_avg_power_alpha_left_right_pre)
 # %%
 channels = ['Fp1','AF3','F7','F3','FC1','FC5','T7','C3','CP1','CP5','P7','P3','Pz','PO3',
@@ -175,8 +175,8 @@ mne.viz.plot_topomap(norm_avg_power_alpha_left_right_pre, info_picked, names=cha
 power_alpha_left_dur = tfr_multitaper(epoch_left_dur, freqs, n_cycles, return_itc=False, picks=['eeg'])
 power_alpha_right_dur = tfr_multitaper(epoch_right_dur, freqs, n_cycles, return_itc=False, picks=['eeg'])
 
-fname_pleft = resultsdir+subj+ '_left_alpha_dur_new_tfr.h5'
-fname_pright = resultsdir+subj+ '_right_alpha_dur_new_tfr.h5'
+fname_pleft = fpath+resultsdir+subj+ '_left_alpha_dur_new_tfr.h5'
+fname_pright = fpath+resultsdir+subj+ '_right_alpha_dur_new_tfr.h5'
 
 power_alpha_left_dur.save(fname_pleft, overwrite=True)
 power_alpha_right_dur.save(fname_pright, overwrite=True)
@@ -186,7 +186,7 @@ avg_power_alpha_right_dur = power_alpha_right_dur.data.mean(axis=1).mean(axis=1)
 # %%
 norm_avg_power_alpha_left_right_dur = (avg_power_alpha_left_dur - avg_power_alpha_right_dur)/(avg_power_alpha_left_dur + avg_power_alpha_right_dur)*0.5*100
 
-fname_left_right_dur = resultsdir+subj+ '_norm_left_right_dur'
+fname_left_right_dur = fpath+resultsdir+subj+ '_norm_left_right_dur'
 np.save(fname_left_right_dur, norm_avg_power_alpha_left_right_dur)
 # %%
 channels = ['Fp1','AF3','F7','F3','FC1','FC5','T7','C3','CP1','CP5','P7','P3','Pz','PO3',

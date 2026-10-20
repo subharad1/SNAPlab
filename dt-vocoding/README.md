@@ -1,0 +1,1 @@
+A vocoded speech-in-noise (SPIN) psychophysics paradigm for normal-hearing listeners manipulating the auditory filter tip-to-tail ratio (TTR) to simulate distorted tonotopy in sensorineural hearing loss (SNHL).

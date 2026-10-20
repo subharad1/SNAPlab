@@ -14,6 +14,3 @@ speech intelligibility under energetic and informational masking (N = 200).
 
 ### [Distorted Tonotopy Vocoder](dt-vocoding)
 A vocoder designed to manipulate auditory filter Tip-to-Tail Ratio (TTR) to simulate distorted tonotopy in Normal Hearing Participants
-
-## Data
-Data come from human-subjects research and are not included in this repository.

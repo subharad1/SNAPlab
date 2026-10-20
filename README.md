@@ -1,9 +1,6 @@
 # SNAPlab
 
-Analysis code from my PhD research in the Systems Neuroscience of Auditory
-Perception (SNAP) Lab, University of Pittsburgh (PI: Dr. Hari Bharadwaj).
-My work examines how sensory deficits and top-down cognitive processes
-shape speech perception in listeners with and without hearing loss.
+Contains 3 folders for 3 related folders as listed below
 
 ## Projects
 
